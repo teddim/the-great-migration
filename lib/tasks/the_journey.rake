@@ -45,7 +45,8 @@ task :the_journey => :environment do
     case true
 
     when !ActiveRecord::Base.connection.table_exists?("pilgrims")
-      p "Very good. It's like it didn't even happen"
+      puts "\e[#{32}m#{"Poof! It's like it never even happened"}\e[0m"
+      p "Now go write some SQL"
 
     when !Pilgrim.first.methods.include?(:burdens) && !Pilgrim.first.methods.include?(:trinket) && Pilgrim.all.count == 3 && !Pilgrim.first.methods.include?(:ego)
       puts "\e[#{32}m#{"you've done it!"}\e[0m"
@@ -105,7 +106,7 @@ task :the_journey => :environment do
 
     when Checker.new.check("changed name to trail name", Pilgrim.first.methods.include?(:trail_name), true)
       p "Super duper great job! Now update each pilgrim with a different `trail_name` than what they currently have"
-      puts "\e[34m#{"Hint: look at the `.update_attributes` method in ActiveRecord. Make sure you give everyone a new trail_name in the cnosole"}\e[0m"
+      puts "\e[34m#{"Hint: look at the `.update_attributes` method in ActiveRecord. Make sure you give everyone a new trail_name in the console"}\e[0m"
 
 
     when location_table_exists && Checker.new.check("created 3 locations", Location.all.count, 3)
