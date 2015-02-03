@@ -36,7 +36,9 @@ task :the_journey => :environment do
         else
           names_are_different = false
         end
-        names_are_different = true
+        unless names_are_different == false
+          names_are_different = true
+        end
       end
     end
 
