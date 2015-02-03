@@ -38,4 +38,4 @@ oprah_winfrey.trinket = trinket
 oprah_winfrey.save
 sleep(1)
 p "This should be quite the journey.\n"
-p "When you are ready to begin, run the rake command to get started"
+p "When you are ready to begin, run `rake the_journey` to get started"
